@@ -6,7 +6,7 @@ class database{
        "servername" => "localhost",
        "username" => "root",
        "password" => "Admin",
-       "dbname" => "camping",
+       "dbname" => "kantine_kub",
    ];
 
     public static function getDatabaseConnection (): PDO | PDOException
