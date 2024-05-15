@@ -28,7 +28,8 @@ $page["body"] = function () {
     if (count($table) > 0) {
         foreach ($table as $key=>&$row) {
             $row += [
-                "rediger" => "<a href='insert.php?table=$_GET[table]&row=$key'>rediger $_GET[table]: $key</a>"
+                "rediger" => "<a href='insert.php?table=$_GET[table]&row=$key'>rediger $_GET[table]: $key</a>",
+                "bestill" => "<a href='bestill?row=$key'>Bestill: $key</a>",
             ];
             foreach ($row as $key2=>$value) {
                 if (is_null(@$row["avsluttet"]) and $key2 === "avsluttet") {
