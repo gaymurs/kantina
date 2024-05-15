@@ -1,6 +1,7 @@
 <?php
 include_once "funksjoner/automagic.php";
 include_once "backend/submitFunctions.php";
+include_once "backend/getFromDatabase.php";
 include_once "getAllForms.php";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
