@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $page["title"] = "Bestilling";
 
@@ -10,11 +11,12 @@ $page["body"] = function () {
     }
 
     if (isset($_GET["anntall"])) {
-    submitFunctions::insertIntoTable("bestillinger", [
-    "meny_id" => $_GET["row"],
-    "anntall" => $_GET["anntall"],
-    ]);
-    echo "Bestilling sendt inn";
+        if (!isset($_SESSION["handlekurv"])) $_SESSION["handlekurv"] = [];
+        $_SESSION["handlekurv"][] = [
+            "meny_id" => $_GET["row"],
+            "anntall" => $_GET["anntall"],
+        ];
+    echo "Bestilling lagt til handlekurven";
     }
 
     ?>
