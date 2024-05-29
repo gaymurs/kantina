@@ -9,13 +9,27 @@ create table meny
 
 create table bestillinger
 (
-    id      int auto_increment
+    id            int auto_increment
         primary key,
-    meny_id int           not null,
-    anntall int default 1 not null,
-    constraint bestillinger_meny_id_fk
+    email         tinytext                             not null,
+    dato_bestillt datetime default current_timestamp() not null,
+    dato_levering datetime                             not null
+);
+
+
+create table bestillinger_items
+(
+    id              int auto_increment
+        primary key,
+    bestillinger_id int           not null,
+    meny_id         int           not null,
+    anntall         int default 1 not null,
+    constraint bestillinger_items_bestillinger_id_fk
+        foreign key (bestillinger_id) references bestillinger (id),
+    constraint bestillinger_items_meny_id_fk
         foreign key (meny_id) references meny (id)
 );
+
 
 INSERT INTO meny (id, meny, innhold, pris) VALUES (1, 'Kaffekanne 1 liter ', null, 90);
 INSERT INTO meny (id, meny, innhold, pris) VALUES (2, 'Kaffekontainer 5 liter ', null, 250);
