@@ -12,7 +12,7 @@ if (isset($_GET["row"])) {
     submitFunctions::updateTable($_GET["table"], ["id" => $_GET["row"]], [ "avsluttet" => date("Y-m-d H:i:s")]);
 }
 
-$uppercase = ucfirst(str_replace("-", " ", $_GET["table"]));
+$uppercase = ucfirst(str_replace(["-", "_"], " ", $_GET["table"]));
 $page["title"] = "Table: $uppercase";
 
 $navLinks = [
